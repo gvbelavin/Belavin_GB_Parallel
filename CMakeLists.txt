@@ -1,7 +1,12 @@
 cmake_minimum_required(VERSION 3.10)
-project(sin_sum)
+project(SinSum)
 
-set(CMAKE_CXX_STANDARD 11)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
+option(USE_FLOAT "Use float instead of double" OFF)
+
+if(USE_FLOAT)
+    add_compile_definitions(ARRAY_TYPE=float)
+else()
+    add_compile_definitions(ARRAY_TYPE=double)
+endif()
 
 add_executable(sin_sum sin_sum.cpp)
